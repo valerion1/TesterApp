@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>components/RApplicationWindow.qml</file>
+        <file>components/RButton.qml</file>
+        <file>components/RPage.qml</file>
+        <file>screens/LoginForm.qml</file>
+        <file>screens/MainMenu.qml</file>
+        <file>components/Header.qml</file>
+        <file>components/MenuItem.qml</file>
+        <file>model/MenuModel.qml</file>
+        <file>components/RTimer.qml</file>
+        <file>components/RMessageBox.qml</file>
+        <file>model/ApiModel.js</file>
+        <file>components/MaterialTextField.qml</file>
+    </qresource>
+</RCC>
