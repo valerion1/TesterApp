@@ -16,6 +16,7 @@ RPage{
         anchors.top: root.top;
         anchors.left: root.left;
         anchors.right: root.right;
+        height: 20 * settings.pixelDensity;
         z: 1;
 
         TabButton {
@@ -105,11 +106,18 @@ RPage{
                 height: 20 * settings.pixelDensity;
 
                 onClicked: {
-                    if((loginField.text != "" && passwordField.text != "")
-                            && ApiModel.login(loginField.text, passwordField.text))
-                        stackView.push(Qt.resolvedUrl("MainMenu.qml"));
-                    else
-                        mb.show("Login or password is incorrect. Please check the correctness of the data you entered and try again.");
+                    if(loginField.text != "" && passwordField.text != "")
+                        ApiModel.login(loginField.text, passwordField.text,
+                                       function(){
+                                            stackView.push(Qt.resolvedUrl("MainMenu.qml"));
+                                       },
+                                       function(){
+                                            mb.show("Login or password is incorrect. Please check the correctness of the data you entered and try again.");
+                                       });
+
+//                    }
+//                    else
+//                        mb.show("Login or password is incorrect. Please check the correctness of the data you entered and try again.");
 //                        mb.show("Логин или пароль неверные. Пожалуйста проверьте правильность введенных вами данных и попробуйте снова.");
 
 
