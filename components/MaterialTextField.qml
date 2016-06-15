@@ -4,7 +4,7 @@ import QtQuick.Controls.Styles 1.4
 
 TextField{
     id: root;
-    font.pixelSize: 14 * settings.pixelDensity;
+    font.pixelSize: 11 * settings.pixelDensity;
 
     property color textColor: "black";
     property color borderColor: "black";

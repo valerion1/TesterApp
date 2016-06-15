@@ -11,7 +11,7 @@ ApplicationWindow {
     title: "TEST";
     visibility: settings.debugMode ? "FullScreen" : "Maximized";
 
-    property color backColor: "#fff";
+    property color backColor: "transparent";
 
     style: ApplicationWindowStyle{
         background: Rectangle{

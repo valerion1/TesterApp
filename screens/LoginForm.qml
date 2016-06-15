@@ -54,19 +54,19 @@ RPage{
             Column{
                 anchors.horizontalCenter: parent.horizontalCenter;
                 anchors.top: parent.top;
-                anchors.topMargin: 40  * settings.pixelDensity;
+                anchors.topMargin: 60  * settings.pixelDensity;
 
 
                 TextField{
                     id: loginField;
                     placeholderText: qsTr("Login");
 
-                    font.pixelSize: 14 * settings.pixelDensity;
+                    font.pixelSize: 11 * settings.pixelDensity;
 
 
                     background: Rectangle {
-                        implicitWidth: 100 * settings.pixelDensity;
-                        implicitHeight: 20 * settings.pixelDensity;
+                        implicitWidth: 80 * settings.pixelDensity;
+                        implicitHeight: 16 * settings.pixelDensity;
                     }
                 }
 
@@ -83,11 +83,12 @@ RPage{
 
                     echoMode: TextField.Password;
 
-                    font.pixelSize: 14 * settings.pixelDensity;
+                    font.pixelSize: 11 * settings.pixelDensity;
+
 
                     background: Rectangle {
-                        implicitWidth: 100 * settings.pixelDensity;
-                        implicitHeight: 20 * settings.pixelDensity;
+                        implicitWidth: 80 * settings.pixelDensity;
+                        implicitHeight: 16 * settings.pixelDensity;
                     }
                 }
 
@@ -100,20 +101,29 @@ RPage{
 
                 anchors.horizontalCenter: parent.horizontalCenter;
                 anchors.bottom: parent.bottom;
-                anchors.bottomMargin: 40 * settings.pixelDensity;
+                anchors.bottomMargin: 25 * settings.pixelDensity;
 
-                width: 60 * settings.pixelDensity;
+                initialWidth: 60 * settings.pixelDensity;
                 height: 20 * settings.pixelDensity;
 
+//                color: butSubmit.pressed ? Qt.darker("#03A9F4")  : "#03A9F4";
+                color: "#03A9F4";
+
                 onClicked: {
-                    if(loginField.text != "" && passwordField.text != "")
+                    if(loginField.text != "" && passwordField.text != ""){
+
+                        butSubmit.state = "LOADING";
+
                         ApiModel.login(loginField.text, passwordField.text,
                                        function(){
-                                            stackView.push(Qt.resolvedUrl("MainMenu.qml"));
+                                           butSubmit.state = "NORMAL";
+                                           stackView.push(Qt.resolvedUrl("MainMenu.qml"));
                                        },
                                        function(){
-                                            mb.show("Login or password is incorrect. Please check the correctness of the data you entered and try again.");
+                                           butSubmit.state = "NORMAL";
+                                           mb.show("Login or password is incorrect. Please check the correctness of the data you entered and try again.");
                                        });
+                    }
 
 //                    }
 //                    else
@@ -151,8 +161,6 @@ RPage{
                 y: tabBar.height + 5 * settings.pixelDensity;
 
                 color: "#F44336";
-
-//                anchors.left: loginForm.right;
 
                 height: 20 * settings.pixelDensity;
                 width: 0;
@@ -209,7 +217,7 @@ RPage{
             Column{
 
                 anchors.top: parent.top;
-                anchors.topMargin: 20 * settings.pixelDensity;
+                anchors.topMargin: 35 * settings.pixelDensity;
                 anchors.left:  parent.left;
                 anchors.leftMargin: 10 * settings.pixelDensity;
 //                anchors.horizontalCenter: parent.horizontalCenter;
@@ -221,8 +229,8 @@ RPage{
 
                     placeholderText: qsTr("Name");
 
-                    height: 17 * settings.pixelDensity;
-                    width: 75 * settings.pixelDensity;
+                    height: 15 * settings.pixelDensity;
+                    width: 90 * settings.pixelDensity;
 
                     textColor: "white";
                     borderColor: "white";
@@ -234,8 +242,8 @@ RPage{
 
                     placeholderText: qsTr("Email");
 
-                    height: 17 * settings.pixelDensity;
-                    width: 75 * settings.pixelDensity;
+                    height: 15 * settings.pixelDensity;
+                    width: 90 * settings.pixelDensity;
 
                     textColor: "white";
                     borderColor: "white";
@@ -247,8 +255,8 @@ RPage{
 
                     placeholderText: qsTr("Login");
 
-                    height: 17 * settings.pixelDensity;
-                    width: 75 * settings.pixelDensity;
+                    height: 15 * settings.pixelDensity;
+                    width: 90 * settings.pixelDensity;
 
                     textColor: "white";
                     borderColor: "white";
@@ -260,8 +268,8 @@ RPage{
 
                     placeholderText: qsTr("Password");
 
-                    height: 17 * settings.pixelDensity;
-                    width: 75 * settings.pixelDensity;
+                    height: 15 * settings.pixelDensity;
+                    width: 90 * settings.pixelDensity;
 
                     textColor: "white";
                     borderColor: "white";
@@ -274,10 +282,12 @@ RPage{
 
                 anchors.horizontalCenter: parent.horizontalCenter;
                 anchors.bottom: parent.bottom;
-                anchors.bottomMargin: 30 * settings.pixelDensity;
+                anchors.bottomMargin: 25 * settings.pixelDensity;
 
-                width: 70 * settings.pixelDensity;
+                initialWidth: 60 * settings.pixelDensity;
                 height: 20 * settings.pixelDensity;
+
+                color: "#03A9F4";
 
                 onClicked: {
 

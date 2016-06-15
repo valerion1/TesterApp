@@ -13,5 +13,6 @@
         <file>components/RMessageBox.qml</file>
         <file>model/ApiModel.js</file>
         <file>components/MaterialTextField.qml</file>
+        <file>components/SmallCircle.qml</file>
     </qresource>
 </RCC>
