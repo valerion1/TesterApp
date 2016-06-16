@@ -12,6 +12,7 @@ Rectangle{
 
     property real initialWidth;
     property string text: "";
+    property bool bisy: false;
 
     Text{
         id: text;

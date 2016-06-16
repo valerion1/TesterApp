@@ -5,19 +5,23 @@ ListModel {
     id: dataModel
 
     ListElement {
-        color: "orange"
+        color: "#19C4E1"
+        text_color: "white"
         text: "C++"
     }
     ListElement {
-        color: "lightgreen"
+        color: "#6082bb"
+        text_color: "white"
         text: "PHP"
     }
     ListElement {
-        color: "orchid"
+        color: "#f0db4f"
+        text_color: "323330"
         text: "JS"
     }
     ListElement {
-        color: "tomato"
+        color: "#ec662b"
+        text_color: "white"
         text: "HTML"
     }
 }

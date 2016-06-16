@@ -65,9 +65,28 @@ RPage{
 
 
                     background: Rectangle {
+
                         implicitWidth: 80 * settings.pixelDensity;
                         implicitHeight: 16 * settings.pixelDensity;
+
+                        Rectangle{
+                            anchors.fill: parent;
+                            id: bLF;
+                        }
+
+                        DropShadow {
+                            anchors.fill: bLF;
+                            horizontalOffset: 0;
+                            verticalOffset: 1 * settings.pixelDensity;
+                            radius: 15.0;
+                            samples: 28;
+                            color: "#80000000";
+                            source: bLF;
+                        }
                     }
+
+
+
                 }
 
                 Rectangle{
@@ -87,8 +106,24 @@ RPage{
 
 
                     background: Rectangle {
+
                         implicitWidth: 80 * settings.pixelDensity;
                         implicitHeight: 16 * settings.pixelDensity;
+
+                        Rectangle{
+                            anchors.fill: parent;
+                            id: bPF;
+                        }
+
+                        DropShadow {
+                            anchors.fill: bPF;
+                            horizontalOffset: 0;
+                            verticalOffset: 1 * settings.pixelDensity;
+                            radius: 15.0;
+                            samples: 28;
+                            color: "#80000000";
+                            source: bPF;
+                        }
                     }
                 }
 
@@ -110,17 +145,20 @@ RPage{
                 color: "#03A9F4";
 
                 onClicked: {
-                    if(loginField.text != "" && passwordField.text != ""){
+                    if(loginField.text != "" && passwordField.text != "" && !butSubmit.bisy){
 
                         butSubmit.state = "LOADING";
+                        butSubmit.bisy = true;
 
                         ApiModel.login(loginField.text, passwordField.text,
                                        function(){
                                            butSubmit.state = "NORMAL";
+                                           butSubmit.bisy = false;
                                            stackView.push(Qt.resolvedUrl("MainMenu.qml"));
                                        },
                                        function(){
                                            butSubmit.state = "NORMAL";
+                                           butSubmit.bisy = false;
                                            mb.show("Login or password is incorrect. Please check the correctness of the data you entered and try again.");
                                        });
                     }

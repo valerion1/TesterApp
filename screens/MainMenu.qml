@@ -42,10 +42,12 @@ RPage{
             }
 
             style: ButtonStyle{
+
                 background: Rectangle{
                     color: button.pressed ? "#00796B" : "#009688";
                 }
             }
+
         }
     }
 
@@ -86,8 +88,8 @@ RPage{
             Text {
                 anchors.centerIn: parent;
                 renderType: Text.NativeRendering;
-                color: "white";
-                font.pixelSize: 30;
+                color: model.text_color;
+                font.pixelSize: 40;
                 font.bold: true;
                 text: model.text;
             }

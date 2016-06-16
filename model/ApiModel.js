@@ -2,7 +2,7 @@
 
 
 function login(login, password, callback_success, callback_failed){
-
+//    console.log("query");
     var xhr = new XMLHttpRequest();
 //    var result = new String;
 
@@ -10,7 +10,7 @@ function login(login, password, callback_success, callback_failed){
 
     xhr.onreadystatechange = function(){
         if(xhr.readyState === XMLHttpRequest.DONE && xhr.status == 200 && JSON.parse(xhr.responseText).result){
-            console.log(JSON.parse(xhr.responseText).result);
+            //console.log(JSON.parse(xhr.responseText).result);
             callback_success();
         }
         else
@@ -19,13 +19,8 @@ function login(login, password, callback_success, callback_failed){
     }
 
     xhr.send();
-
-//    return result.result;
 }
 
-function res(r){
-    console.log(r.result);
-}
 
 function registrer(){
 
