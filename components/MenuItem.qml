@@ -4,15 +4,32 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
 Item{
+    id: root;
 
-    height: 150 * settings.pixelDensity;
-    width: 150 * settings.pixelDensity;
+    property color color;
+    property color textColor;
+    property real textPixelSize;
+    property string text;
 
-    property color color: background.color;
+    signal clicked();
 
-    Rectangle{
-        id: background;
+    Rectangle {
+        anchors.margins: 5;
         anchors.fill: parent;
-        color: parent.color;
+        color: mouseArea.pressed ? root.color : root.color;
+    }
+
+    Text {
+        anchors.centerIn: parent;
+        color: root.textColor;
+        font.pixelSize: root.textPixelSize;
+        font.bold: true;
+        text: root.text;
+    }
+
+    MouseArea {
+        id: mouseArea;
+        anchors.fill: parent;
+        onClicked: root.clicked();
     }
 }
