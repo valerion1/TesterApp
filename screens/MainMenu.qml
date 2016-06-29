@@ -29,7 +29,6 @@ RPage{
 
         Button{
             id: button;
-            //initialItem: settings.logined ? main_menu : login_form;
             anchors.left: parent.left;
             anchors.top: parent.top;
             anchors.bottom: parent.bottom;
