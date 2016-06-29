@@ -17,7 +17,7 @@ Rectangle{
     Text{
         id: text;
         anchors.centerIn: rect;
-        renderType: Text.NativeRendering
+//        renderType: Text.NativeRendering
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.family: "Roboto"

@@ -14,5 +14,11 @@
         <file>model/ApiModel.js</file>
         <file>components/MaterialTextField.qml</file>
         <file>components/SmallCircle.qml</file>
+        <file>screens/PresentTestPage.qml</file>
+    </qresource>
+    <qresource prefix="/img">
+        <file>img/arrow_back.png</file>
+        <file>img/profile_icon.png</file>
+        <file>img/favorite_icon.png</file>
     </qresource>
 </RCC>

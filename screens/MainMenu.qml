@@ -28,7 +28,7 @@ RPage{
         color: "#009688";
 
         Button{
-            id: button;
+            id: buttonBack;
             anchors.left: parent.left;
             anchors.top: parent.top;
             anchors.bottom: parent.bottom;
@@ -43,7 +43,72 @@ RPage{
             style: ButtonStyle{
 
                 background: Rectangle{
-                    color: button.pressed ? "#00796B" : "#009688";
+                    color: buttonBack.pressed ? "#00796B" : "#009688";
+                    Image {
+                        anchors.centerIn: parent;
+                        width: sourceSize.width * 0.15 * settings.pixelDensity;
+                        height: sourceSize.height * 0.15 * settings.pixelDensity;
+                        source: "qrc:/img/img/arrow_back.png"
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+        }
+
+        Button{
+            id: buttonProfile;
+            anchors.right: parent.right;
+            anchors.top: parent.top;
+            anchors.bottom: parent.bottom;
+
+            height: header.height;
+            width: height;
+
+            onClicked:{
+                console.log("profile click");
+            }
+
+            style: ButtonStyle{
+
+                background: Rectangle{
+                    color: buttonProfile.pressed ? "#00796B" : "#009688";
+                    Image {
+                        anchors.centerIn: parent;
+                        width: sourceSize.width * 0.15 * settings.pixelDensity;
+                        height: sourceSize.height * 0.15 * settings.pixelDensity;
+                        source: "qrc:/img/img/profile_icon.png"
+                        opacity: 0.8;
+                    }
+                }
+            }
+
+        }
+
+        Button{
+            id: buttonFavorite;
+            anchors.right: buttonProfile.left;
+            anchors.top: parent.top;
+            anchors.bottom: parent.bottom;
+
+            height: header.height;
+            width: height;
+
+            onClicked:{
+                console.log("favorite click");
+            }
+
+            style: ButtonStyle{
+
+                background: Rectangle{
+                    color: buttonFavorite.pressed ? "#00796B" : "#009688";
+                    Image {
+                        anchors.centerIn: parent;
+                        width: sourceSize.width * 0.15 * settings.pixelDensity;
+                        height: sourceSize.height * 0.15 * settings.pixelDensity;
+                        source: "qrc:/img/img/favorite_icon.png"
+                        opacity: 0.8;
+                    }
                 }
             }
 
@@ -68,35 +133,17 @@ RPage{
 
         model: MenuModel{}
 
-        delegate: Item{
+        delegate: MenuItem{
 
-//            property var view: GridView.view;
-//            property var isCurrent: GridView.isCurrentItem;
-
+            color: model.color;
+            textColor: model.text_color;
+            textPixelSize: model.text_size * settings.pixelDensity;
+            text: model.text;
 
             height: view.cellHeight;
             width: view.cellWidth;
 
-
-            Rectangle {
-                anchors.margins: 5;
-                anchors.fill: parent;
-                color: model.color;
-            }
-
-            Text {
-                anchors.centerIn: parent;
-                renderType: Text.NativeRendering;
-                color: model.text_color;
-                font.pixelSize: 40;
-                font.bold: true;
-                text: model.text;
-            }
-
-            MouseArea {
-                anchors.fill: parent;
-                onClicked: view.currentIndex = model.index;
-            }
+            onClicked: stackView.push(Qt.resolvedUrl("PresentTestPage.qml"));
         }
     }
 
